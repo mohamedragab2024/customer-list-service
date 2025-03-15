@@ -18,9 +18,18 @@ func CreateCustomer(c *gin.Context) {
 }
 
 func GetCustomers(c *gin.Context) {
-	var customer []models.Customer
-	models.DB.Find((&customer))
-	c.JSON(http.StatusOK, customer)
+	var customers []models.Customer
+	term := c.Query("term")
+
+	if term != "" {
+		// Search by name or email if term exists
+		models.DB.Where("name LIKE @term OR email LIKE @term", map[string]interface{}{"term": "%" + term + "%"}).Find(&customers)
+	} else {
+		// Get all customers if no term provided
+		models.DB.Find(&customers)
+	}
+
+	c.JSON(http.StatusOK, customers)
 }
 
 func GetCustomer(c *gin.Context) {
