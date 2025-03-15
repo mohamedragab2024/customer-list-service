@@ -14,14 +14,3 @@ test:
 
 docker-build:
 	docker build -t customer-list-service:latest .
-
-up:
-	docker-compose up -d
-
-down:
-	docker-compose down
-
-rebuild:
-	docker-compose down
-	docker-compose build
-	docker-compose up -d

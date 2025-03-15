@@ -4,28 +4,8 @@
 The Customer List Service is an API that allows you to manage a list of customers. You can add, update, delete, and retrieve customer information.
 
 ## Prerequisites
-- Go 1.x
+- Go 1.21
 - Docker
-- Docker Compose
-
-## Running the API
-
-To run the API, you can use the provided `Makefile`. This will build and start the service using Docker.
-
-1. **Build and start the service:**
-    ```sh
-    make up
-    ```
-
-2. **Stop the service:**
-    ```sh
-    make down
-    ```
-
-3. **Rebuild the service:**
-    ```sh
-    make rebuild
-    ```
 
 ## API Endpoints
 
@@ -71,8 +51,12 @@ To run the API, you can use the provided `Makefile`. This will build and start t
 ## Development
 
 To run the service locally for development purposes, you can use the following commands:
+1. **Initialize/Reset Database:**
+    ```sh
+    make db
+    ```
 
-1. **Run the application:**
+2. **Run the application:**
     ```sh
     make run
     ```
@@ -82,26 +66,17 @@ To run the service locally for development purposes, you can use the following c
     make build
     ```
 
-3. **Run tests:**
+4. **Run tests:**
     ```sh
     make test
     ```
 
-4. **Initialize/Reset Database:**
-    ```sh
-    make db
-    ```
 
 ## Build and Deploy
 
 1. **Build Docker image:**
     ```sh
     make docker-build
-    ```
-
-2. **Run with Docker Compose:**
-    ```sh
-    make up
     ```
 
 ## License
