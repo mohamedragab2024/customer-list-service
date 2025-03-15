@@ -4,6 +4,7 @@
 The Customer List Service is an API that allows you to manage a list of customers. You can add, update, delete, and retrieve customer information.
 
 ## Prerequisites
+- Go 1.x
 - Docker
 - Docker Compose
 
@@ -71,19 +72,36 @@ To run the API, you can use the provided `Makefile`. This will build and start t
 
 To run the service locally for development purposes, you can use the following commands:
 
-1. **Install dependencies:**
+1. **Run the application:**
     ```sh
-    npm install
+    make run
     ```
 
-2. **Start the development server:**
+2. **Build the application:**
     ```sh
-    npm start
+    make build
     ```
 
 3. **Run tests:**
     ```sh
-    npm test
+    make test
+    ```
+
+4. **Initialize/Reset Database:**
+    ```sh
+    make db
+    ```
+
+## Build and Deploy
+
+1. **Build Docker image:**
+    ```sh
+    make docker-build
+    ```
+
+2. **Run with Docker Compose:**
+    ```sh
+    make up
     ```
 
 ## License
