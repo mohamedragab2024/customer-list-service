@@ -9,7 +9,7 @@ deployment:
   image:
     repository: mohamedragab2024/customer-list-service
     tag: latest
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
   resources:
     limits:
       cpu: 200m

@@ -1,0 +1,14 @@
+name: release
+on:
+ push:
+   tags:
+     -  "*"
+jobs:
+  argocd-deploy:
+    uses: ahmdelemam/svc-ci-bootstrap/.github/workflows/argocd-app-sync.yaml@main
+    with:
+      service_name: ${{ github.event.repository.name }}
+    secrets:
+      ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      ARGOCD_PASSWORD: ${{ secrets.ARGOCD_PASSWORD }}
+      ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
