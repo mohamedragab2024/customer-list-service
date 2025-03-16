@@ -3,7 +3,6 @@ FROM golang:1.21-alpine AS builder
 WORKDIR /app
 COPY . .
 RUN go mod download
-RUN go run scripts/db.go
 RUN go build -o customer-list-service cmd/main.go
 
 # Run stage
