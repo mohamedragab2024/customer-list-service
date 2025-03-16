@@ -22,7 +22,7 @@ spec:
       {{- end }}
       containers:
       - name: {{ include "customer-list-service.fullname" . }}
-        image: docker.io/library/{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag | default .Chart.AppVersion }}
+        image: {{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag | default .Chart.AppVersion }}
         ports:
         - containerPort: {{ .Values.deployment.containerPort | default 80 }}
         {{- with .Values.deployment.resources }}
