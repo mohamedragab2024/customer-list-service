@@ -2,6 +2,7 @@ service:
   enabled: true
   port: 80
   targetPort: 8080
+  type: LoadBalancer
 deployment:
   enabled: true
   replicas: 2
