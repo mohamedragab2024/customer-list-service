@@ -10,7 +10,6 @@ deployment:
     pullSecrets:
       - name: regcred
     repository: regoo707/customer-list-service
-    tag: latest
     pullPolicy: IfNotPresent
   resources:
     limits:
