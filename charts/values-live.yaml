@@ -9,7 +9,7 @@ deployment:
   image:
     pullSecrets:
       - name: regcred
-    repository: mohamedragab2024/customer-list-service
+    repository: regoo707/customer-list-service
     tag: latest
     pullPolicy: IfNotPresent
   resources:
