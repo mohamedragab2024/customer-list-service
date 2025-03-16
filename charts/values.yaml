@@ -4,13 +4,12 @@
    targetPort: 80
    type: ClusterIP # or NodePort, LoadBalancer
  deployment:
-    enabled: false
+    enabled: true
     replicas: 1
     image:
       pullSecrets:
       - name: regcred
       repository: nginx
-      tag: latest
       pullPolicy: IfNotPresent
     resources:
       limits:

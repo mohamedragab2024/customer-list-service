@@ -23,6 +23,7 @@ spec:
       containers:
       - name: {{ include "customer-list-service.fullname" . }}
         image: {{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag | default .Chart.AppVersion }}
+        imagePullPolicy: {{ .Values.deployment.image.pullPolicy }}
         ports:
         - containerPort: {{ .Values.deployment.containerPort | default 80 }}
         {{- with .Values.deployment.resources }}
