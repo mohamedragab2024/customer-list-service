@@ -1,0 +1,16 @@
+{{- if .Values.service.enabled }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "customer-list-service.fullname" . }}
+spec:
+  type: {{ .Values.service.type  }}
+  selector:
+    app.kubernetes.io/name: {{ include "customer-list-service.fullname" . }}
+  ports:
+    - protocol: TCP
+      port: {{ required "Port is required" .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort | default 8080 }}
+
+{{- end }}

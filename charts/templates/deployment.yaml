@@ -1,0 +1,28 @@
+{{ if .Values.deployment.enabled }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "customer-list-service.fullname" . }}
+  labels:
+    app:  {{ include "customer-list-service.fullname" . }}
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      app: {{ include "customer-list-service.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app:  {{ include "customer-list-service.fullname" . }}
+    spec:
+      containers:
+      - name: {{ include "customer-list-service.fullname" . }}
+        image: docker.io/library/{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag | default .Chart.AppVersion }}
+        ports:
+        - containerPort: {{ .Values.deployment.containerPort | default 80 }}
+        {{- with .Values.deployment.resources }}
+        resources:
+        {{- toYaml . | nindent 10 }}
+        {{- end }}
+{{- end }}

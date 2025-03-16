@@ -1,0 +1,19 @@
+ service:
+   enabled: true
+   port: 80
+   targetPort: 80
+   type: ClusterIP # or NodePort, LoadBalancer
+ deployment:
+    enabled: false
+    replicas: 1
+    image:
+      repository: nginx
+      tag: latest
+      pullPolicy: IfNotPresent
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
