@@ -7,6 +7,8 @@
     enabled: false
     replicas: 1
     image:
+      pullSecrets:
+      - name: regcred
       repository: nginx
       tag: latest
       pullPolicy: IfNotPresent

@@ -16,6 +16,10 @@ spec:
       labels:
         app:  {{ include "customer-list-service.fullname" . }}
     spec:
+      {{- with .Values.deployment.image.pullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       containers:
       - name: {{ include "customer-list-service.fullname" . }}
         image: docker.io/library/{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag | default .Chart.AppVersion }}
