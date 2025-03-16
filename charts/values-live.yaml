@@ -1,0 +1,22 @@
+service:
+  enabled: true
+  port: 80
+  targetPort: 8080
+deployment:
+  enabled: true
+  replicas: 2
+  containerPort: 8080
+  image:
+    repository: mohamedragab2024/customer-list-service
+    tag: latest
+    pullPolicy: Always
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+  env:
+    - name: APP_ENV
+      value: "production"
