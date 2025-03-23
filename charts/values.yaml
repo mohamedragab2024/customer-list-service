@@ -2,7 +2,8 @@
    enabled: true
    port: 80
    targetPort: 80
-   type: ClusterIP # or NodePort, LoadBalancer
+   type: LoadBalancer
+    # or NodePort, LoadBalancer
  deployment:
     enabled: true
     replicas: 1
@@ -18,3 +19,8 @@
       requests:
         cpu: 100m
         memory: 128Mi
+ ingress:
+    enabled: false
+    annotations: {}
+    host: chart-example.local
+    tls: true

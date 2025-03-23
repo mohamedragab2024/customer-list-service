@@ -22,3 +22,8 @@ deployment:
   env:
     - name: APP_ENV
       value: "production"
+ingress:
+ enabled: true
+ host: customer.ragab.info
+ tls: true
+
